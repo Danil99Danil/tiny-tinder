@@ -5,7 +5,7 @@ let photoFolder = [
     ];
 
 /*USER FOLDER PHOTO*/
-let photo = ["./img/m2ijdMS7wF0.jpg", "./img/HgI3mOkezAw.jpg", "./img/foto-svinoj-tushi.jpg"];
+let photo = ["./img/m2ijdMS7wF0.jpg", "./img/HgI3mOkezAw.jpg", "./img/foto-svinoj-tushi.jpg", "./img/genocid.jpg", "./img/выхухол.jpg", "./img/жемчуг.jpg", "./img/срва.jpg"];
 /*USER FOLDER PHOTO*/
 
 /*ARROW SWIPER*/
@@ -13,8 +13,7 @@ let arrow = document.querySelector("#interface-nudes > div > div.sviper-photo > 
 /*ARROW SWIPER*/
 
 /*NUMBER SWIPE*/
-let numberSwipe = 0;
-let lvlCounter = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = numberSwipe;
+let lvlCounter = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = 0;
 /*NUMBER SWIPE*/
 
 /*LEVEL UP*/
@@ -26,63 +25,66 @@ let newPhoto = document.querySelector("#interface-nudes > div > div.lvl-btn > di
 /*NEW PHOTO*/
 
 /*MU LEVEL PHOTO*/
-let levelPhotoMy = 1;
-let levelMyNew = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div.lvl_icon.new > h2").innerHTML = levelPhotoMy;
+// let levelPhotoMy = 1;
+let levelPhotoMy = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div.lvl_icon.new > h2").innerHTML = 1;
 /*MU LEVEL PHOTO*/
+
+let newBtn = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div.lvl_icon.new");
 
 /*FUNCTION COUNTER SWIPE*/
 function countSwipe() {
-    numberSwipe += 1;
-    document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = numberSwipe
-    lvlCounter = numberSwipe;
+    // numberSwipe += 1;
+    lvlCounter += 1;
+    document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = lvlCounter;
+    // lvlCounter = numberSwipe;
 }
 /*FUNCTION COUNTER SWIPE*/
 
 /*PRICE*/
-let price = 1;
+// let price = 1;
 
-let priceUp = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(3) > h3").innerHTML = price;
+let price = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(3) > h3").innerHTML = 1;
 /*PRICE*/
-
-/*FUNCTION NEW PHOTO*/
-// function newLvlPhoto(photoFolder) {
-//     photoFolder.map(a => {
-//         return a.slice(0, 1);
-//     })
-// }
-// console.log(newLvlPhoto(photoFolder))
-/*FUNCTION NEW PHOTO*/
 
 /*FUNCTION SWIPER*/
 function myLevel() {
-    if(numberSwipe >= price){
-        numberSwipe -= price;
+    if(lvlCounter >= price){
+        lvlCounter -= price;
+        levelPhotoMy += 1;
         price = Math.pow(2, price);
         document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(3) > h3").innerHTML = price;
-        document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = numberSwipe;
-        priceUp = price;
+        document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(1) > h1").innerHTML = lvlCounter;
+        document.querySelector("#interface-nudes > div > div.lvl-btn > div > div.lvl_icon.new > h2").innerHTML = levelPhotoMy;
     } else {
         console.log("not enough hearts:(")
     }
 }
-/*FUNCTION SWIPER*/
 
-arrow.addEventListener("click", function(event){
-let swipePhot = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
-    if(event.target){
-        swipePhot.src = photo[2];
-        countSwipe()
-    }
-})
+/*FUNCTION SWIPER*/
+function range() {
+    // return photoFolder.slice(0, levelPhotoMy).flat()
+    let rangeLevel = photoFolder.slice(0, levelPhotoMy).flat();
+    // return rangeLevel
+}
+/*FUNCTION NEW PHOTO*/
+
+arrow.addEventListener("click", function(){
+    let swipePhot = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
+        if(event.target){
+            for(let i = 0; i < photo.length; i++){
+                swipePhot.src = photo[i++];
+            }
+            // swipePhot.src = photo[2];
+            countSwipe()
+        }
+    })
 
 levelUp.addEventListener("click", myLevel);
 
-
-
-
-
-
-
+newBtn.addEventListener("click", range)
+// newBtn.addEventListener("click", function(){
+//     console.log(range())
+// })
 
 
 // let curentPhoto = [
