@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(22, 20, 20);
+    background-image: url(./img.style/sunflowers.png);;
+    background-size: cover;
+}
+
+.wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 20px 20px;
+}
+
+.sviper-photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 740px;
+    background: red;
+}
+
+.img {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.swiperRight {
+    position: absolute;
+    right: 40px;
+}
+
+/* .arrow_swipe {
+    position: absolute;
+    right: 40px;
+} */
+
+.slider {
+    display: flex;
+    justify-content: space-around;
+    height: 90%;
+}
+
+.lvl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+    background: aqua;
+}
+
+.btn-iteam {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    height: 75%;
+    background: chartreuse;
+}
+
+.lvl_icon {
+    position: relative;
+    height: 80%;
+}
+
+.lvl_icon:hover {
+    opacity: 0.76;
+}
+
+.number {
+    position: absolute;
+    top: 38px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 35px;
+}
+
