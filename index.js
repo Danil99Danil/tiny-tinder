@@ -25,7 +25,6 @@ let newPhoto = document.querySelector("#interface-nudes > div > div.lvl-btn > di
 /*NEW PHOTO*/
 
 /*MU LEVEL PHOTO*/
-// let levelPhotoMy = 1;
 let levelPhotoMy = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div.lvl_icon.new > h2").innerHTML = 1;
 /*MU LEVEL PHOTO*/
 
@@ -41,12 +40,9 @@ function countSwipe() {
 /*FUNCTION COUNTER SWIPE*/
 
 /*PRICE*/
-// let price = 1;
-
 let price = document.querySelector("#interface-nudes > div > div.lvl-btn > div > div:nth-child(3) > h3").innerHTML = 1;
 /*PRICE*/
 
-/*FUNCTION SWIPER*/
 function myLevel() {
     if(lvlCounter >= price){
         lvlCounter -= price;
@@ -60,58 +56,42 @@ function myLevel() {
     }
 }
 
-/*FUNCTION SWIPER*/
-function range() {
-    // return photoFolder.slice(0, levelPhotoMy).flat()
-    let rangeLevel = photoFolder.slice(0, levelPhotoMy).flat();
-    // return rangeLevel
+/*SLIDER RANDOM*/
+// let current = 0;
+// arrow.addEventListener('click', function() {
+//     let rangeLevel = photoFolder.slice(0, levelPhotoMy).flat();
+//     countSwipe()
+//     let section = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
+//     let iteam = rangeLevel[Math.floor(Math.random() * rangeLevel.length )]
+//     section.src = iteam
+// });
+/*SLIDER RANDOM*/
+let current = 0;
+function getNextIndex(current, max) {
+    current++;
+    if (current >= max) return 0;
+    return current; 
 }
-/*FUNCTION NEW PHOTO*/
 
-arrow.addEventListener("click", function(){
-    let swipePhot = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
-        if(event.target){
-            for(let i = 0; i < photo.length; i++){
-                swipePhot.src = photo[i++];
-            }
-            // swipePhot.src = photo[2];
-            countSwipe()
-        }
-    })
+/*SLIDER*/
+arrow.addEventListener('click', function() {
+    let rangeLevel = photoFolder.slice(0, levelPhotoMy).flat();
+    countSwipe()
+    let section = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
+    current = getNextIndex(current, rangeLevel.length);
+    console.log(current)
+    section.src = rangeLevel[current]
+});
+/*SLIDER*/
 
 levelUp.addEventListener("click", myLevel);
 
-newBtn.addEventListener("click", range)
-// newBtn.addEventListener("click", function(){
-//     console.log(range())
-// })
-
-
-// let curentPhoto = [
-//     ["./img/m2ijdMS7wF0.jpg", "./img/HgI3mOkezAw.jpg", "./img/foto-svinoj-tushi.jpg",],
-//     ["./img/genocid.jpg", "./img/выхухол.jpg", "./img/жемчуг.jpg", "./img/срва.jpg",], 
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ["./img/тигер.jpg", "./img/щековина.jpg",],
-//     ];
-
-// let l = 2;
-// function rere(lvl, arr){
-// if(l) return arr.slice(0, l);
-
-// }
-// let molo = rere(l, curentPhoto);
-// function sss(){
-// let mas = [];
-// for(let i = 0; i < molo.length; i++){
-//     for(let j = 0; j < molo[i].length; j++){
-//         mas.push(molo[i][j]);
+// next.addEventListener('click', function() {
+//     var current = +section.getAttribute('data-current');
+//     current++;
+//     if (current >= array.length) {
+//       current = 0;
 //     }
-// }
-// return mas
-// }
-// console.log(sss())
+//     section.setAttribute('data-current', current);
+//     section.innerHTML = array[current];
+//   });
