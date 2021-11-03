@@ -79,7 +79,7 @@ arrow.addEventListener('click', function() {
     countSwipe()
     let section = document.querySelector("#interface-nudes > div > div.sviper-photo > div > div > img");
     current = getNextIndex(current, rangeLevel.length);
-    console.log(current)
+    // console.log(current)
     section.src = rangeLevel[current]
 });
 /*SLIDER*/

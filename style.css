@@ -73,9 +73,9 @@ body {
     height: 80%;
 }
 
-.lvl_icon:hover {
+/* .lvl_icon:hover {
     opacity: 0.76;
-}
+} */
 
 .number {
     position: absolute;
