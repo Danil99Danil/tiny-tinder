@@ -84,7 +84,8 @@ window.onload = function() {
         heart.addEventListener('click', function() {
             heart.parentNode.removeChild(heart);
             lvlCounter *= 2;
-            elCounter.innerHTML = lvlCounter;            
+            elCounter.innerHTML = lvlCounter;
+            saveState()            
         });
 
         const bornTime = new Date().getTime();
