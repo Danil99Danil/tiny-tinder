@@ -76,6 +76,17 @@ body {
     color: #e800ff;
 }
 
+.superHeart {
+    top: 0px;
+    z-index: 1488228;
+    position: fixed;
+    width: 10vh;
+    height: 10vh;
+    background-image: url("./img.style/супер=харт.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 @media screen and (orientation:landscape) {
     #interface-nudes {
         align-items: flex-start;
